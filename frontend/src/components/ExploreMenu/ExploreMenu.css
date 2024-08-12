@@ -2,17 +2,21 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+  align-items: center;
 }
 
 .explore-menu h1{
   color: rgba(39, 38, 38, 0.858);
   font-weight: 500;
   margin: 5px 20px;
+  font-size: 30px;
 }
 
 .explore-menu-text{
   max-width: 60%;
   columns: #808080;
+  margin: 0px 20px;
+  font-size: 15px;
 }
 
 .explore-menu-list{

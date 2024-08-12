@@ -1,0 +1,29 @@
+.food-display{
+  margin-top: 20px;
+}
+
+.food-display hr{
+  width: 50%;
+  height: 2px;
+  margin: 20px auto;
+  background-color: rgba(255, 87, 15, 0.953);
+  border: none;
+  align-items: center;
+}
+
+.food-display h2{
+  margin-bottom: 10px;
+  font-size: 30px;
+  font-weight: 500;
+  margin: 0px 20px;
+}
+
+.food-display-list{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 2fr));
+  margin-top: 30px;
+  gap: 30px;
+  row-gap: 50px;
+  margin-left: 2%;
+  margin-right: 2%;
+}
