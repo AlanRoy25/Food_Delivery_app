@@ -13,7 +13,7 @@
   display: inline-flex;
   list-style: none;
   gap: 30px;
-  color: slategrey;
+  color: tomato;
   font-size: 18px;
 }
 
@@ -60,20 +60,21 @@
   background: transparent;
   font-size: 16px;
   color: rgb(36, 36, 36);
-  border: 1px solid slategrey;
+  border: 1px solid tomato;
   padding: 10px 30px;
   border-radius: 50px;
   cursor: pointer;
   transition: 0.2s;
+  font-weight: 400;
 }
 
 .navbar button:hover {
-  background-color: rgb(72, 147, 209);
+  background-color: tomato
 }
 
 .navbar .active {
   padding-bottom: 2px;
-  border-bottom: 2px solid slategray;
+  border-bottom: 2px solid rgb(250, 65, 33);
 }
 
 .navbar li {
