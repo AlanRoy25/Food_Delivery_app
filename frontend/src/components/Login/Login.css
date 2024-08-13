@@ -1,0 +1,89 @@
+.Login-popup{
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(50, 50, 50, 0.587);
+  display: grid;
+}
+
+.Login-popup-container{
+  place-self: center;
+  width: max(23vw,330px);
+  color: rgba(87, 87, 87, 0.996);
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  padding: 25px 30px;
+  border-radius: 8px;
+  font-size: 14px;
+  animation: fadeIn 0.5s;
+}
+
+.Login-popup-title{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #000;
+}
+
+.Login-popup-title img{
+  width: 16px;
+  cursor: pointer;
+}
+.Login-password-container {
+  position: relative;
+}
+.Login-popup-inputs{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: relative;
+}
+
+.Login-popup-inputs input{
+  outline: none;
+  border: 1px solid #c9c9c9;
+  padding: 10px;
+  border-radius: 4px;
+  padding-right: 40px; 
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.Login-popup-container button{
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  color: white;
+  background-color: tomato;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.Login-popup-condition{
+  display: flex;
+  align-items: start;
+  gap: 8px;
+  margin-top: -15px;
+}
+
+.Login-popup-condition input{
+  margin-top: 5px;
+}
+
+.Login-popup p span{
+  color: tomato;
+  font-weight: 500;
+}
+
+
+.Login-password-eye {
+  position: absolute;
+  right: 10px; /* Position the eye icon inside the input field */
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #555;
+}
