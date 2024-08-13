@@ -1,7 +1,8 @@
 import React from "react";
 import "./Header.css";
+import { Link } from "react-router-dom";
 
-const Header = () => {
+const Header = ({setMenu}) => {
   return (
     <div className="header">
       <div className="header-contents">
@@ -9,7 +10,9 @@ const Header = () => {
         <p>
           Choose from a diverse menu featuring a delectable array of dishes.
         </p>
-        <button>View Menu</button>
+      <Link to="/#explore-menu" onClick={() => setMenu('menu')}>
+      <button>View Menu</button>
+      </Link>
       </div>
     </div>
   );
