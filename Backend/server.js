@@ -3,13 +3,14 @@ import fs from 'fs';
 
 console.log('Checking paths and files...');
 console.log('Current working directory:', process.cwd());
-console.log('Checking file existence at:', path.resolve('routes/userRoutes.js'));
-console.log('File exists:', fs.existsSync(path.resolve('routes/userRoutes.js')));
+console.log('Checking file existence at:', path.resolve('Routing/userRoutes.js'));
+console.log('File exists:', fs.existsSync(path.resolve('Routing/userRoutes.js')));
 
 import express from 'express';
 import { connectdb } from './config/db.js';
-import foodRouter from './Routes/foodRoutes.js';
-import userRouter from './routes/userRoutes.js';
+import foodRouter from './Routing/foodRoutes.js'; // Ensure 'Routes' is correctly cased
+import UserRouter from './Routing/userRoutes.js';  // Ensure 'Routes' is correctly cased
+
 import 'dotenv/config';
 
 // app config
@@ -24,7 +25,7 @@ connectdb();
 // api endpoint
 app.use('/api/food', foodRouter);
 app.use('/images', express.static('uploads'));
-app.use('/api/user', userRouter);
+app.use('/api/user', UserRouter);
 
 app.get('/', (req, res) => {
   res.send('Api working');
