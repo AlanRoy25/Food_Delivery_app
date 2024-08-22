@@ -1,8 +1,11 @@
 import express from "express";
 import { connectdb } from "./config/db.js";
-import FoodRouter from "./routes/foodroute.js";
+import FoodRouter from "./Routes/foodRoutes.js";
 import 'dotenv/config';
-import userRouter from "/opt/render/project/src/Backend/routes/userRoutes.js";
+
+console.log("Current Directory:", process.cwd());
+import userRouter from "./routes/userRoutes.js";
+
 
 // app config
 const app = express();
