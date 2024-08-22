@@ -6,7 +6,7 @@ import { StoreContext } from "../../context/StoreContext";
 
 const Navbar = ({ cartItemCount }) => {
   const [menu, setMenu] = useState("home");
-  const { getTotalCartAmount } = useContext(StoreContext);
+  const { getTotalCartAmount, token ,setToken } = useContext(StoreContext);
   const navigate = useNavigate();
 
   return (
@@ -62,7 +62,17 @@ const Navbar = ({ cartItemCount }) => {
               {getTotalCartAmount() > 0 && <div className="dot"></div>}
             </Link>
           </div>
-          <button onClick={() => navigate("/login")}>Sign in</button>
+          {!token? <button onClick={() => navigate("/login")}>Sign in</button> 
+          : <div className="navbar-profile">
+            <img src={assets.profile_icon} alt="" />
+            <ul className="nav-profile-dropdown">
+              <li><img src={assets.bag_icon} alt="" /><p>Orders</p></li>
+              <hr />
+              <li><img src={assets.logout_icon} alt="" /><p>Logout</p></li>
+            </ul>
+
+          </div> }
+         
         </div>
       </div>
     </div>

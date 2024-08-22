@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: backend
+    env: node
+    buildCommand: cd backend && npm install
+    startCommand: cd backend && npm start
+    envVars:
+      - key: MONGODB_SECRET
+        value: mongodb+srv://alanroy:Qazwsxedc0225!@delivery-app.lvrbx.mongodb.net/Delivery-app
+      - key: JWT_SECRET
+        value: random#secret

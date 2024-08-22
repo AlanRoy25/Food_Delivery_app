@@ -4,7 +4,7 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  position: fixed;
+  position: relative;
   top: 0;
   left: 0;
   z-index: 100;
@@ -104,6 +104,39 @@
 
 .navbar li {
   cursor: pointer;
+}
+
+.navbar-profile{
+  position: relative;
+  z-index: 200;
+}
+.nav-profile-dropdown{
+  position: absolute;
+  display: none;
+  right: 0;
+  z-index: 300;
+}
+
+.navbar-profile:hover .nav-profile-dropdown{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: #fff;
+  padding: 12px 25px;
+  border-radius: 4px;
+  border: 1px solid tomato;
+  outline: 2px solid white;
+  list-style: none;
+}
+.nav-profile-dropdown li{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.nav-profile-dropdown img{
+  width: 20px;
 }
 
 @media (max-width: 1050px) {

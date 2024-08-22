@@ -1,26 +1,71 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./Login.css";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { assets } from "../../assets/assets";
 import { useNavigate } from "react-router-dom";
+import { StoreContext } from "../../context/StoreContext";
+import axios from 'axios'
 
-const Login = ({ setShowLogin }) => {
+const Login = () => {
+  const { url, setToken } = useContext(StoreContext);
+
   const navigate = useNavigate();
   const [currentState, setCurrentState] = useState("Login");
-  const [passwordVisible, setPasswordVisible] = useState(true);
+  const [passwordVisible, setPasswordVisible] = useState(false);
+  const [data, setData] = useState({
+    name: "",
+    email: "",
+    password: "",
+  });
 
-  const HandleClick = () => {
+  const onChangeHandler = (event) => {
+    const name = event.target.name;
+    const value = event.target.value;
+
+    setData((prevdata) => ({ ...prevdata, [name]: value })); // first setting data and the current data fir previous data ko call karke name ko update karre hain.with the current value
+  };
+
+  const onLogin = async (event) => {
+    event.preventDefault();
+    let newUrl = `${url}/api/user`;
+    if (currentState === "Login") {
+      newUrl += "/login"
+    } else {
+      newUrl += "/signin"
+    }
+
+    try{
+      const response = await axios.post(newUrl,data)
+      if(response.data.success){
+        setToken(response.data.token)
+        localStorage.setItem('token',response.data.token)
+      }
+      else{
+        alert(response.data.message)
+      }
+    }
+      catch (error){
+        console.error('Error during Authentication', error);
+        alert('an error occured, Please try again')
+      }
+
+    }
+
+  const HandlePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible);
   };
 
   const HandleLoginClick = () => {
-    setShowLogin(false);
     navigate("/login");
   };
 
   return (
     <div className="Login-popup">
-      <form className="Login-popup-container" onClick={HandleLoginClick}>
+      <form
+        onSubmit={onLogin}
+        className="Login-popup-container"
+        onClick={HandleLoginClick}
+      >
         <div className="Login-popup-title">
           <h2>{currentState}</h2>
           <img onClick={() => navigate(-1)} src={assets.cross_icon} alt="" />
@@ -29,18 +74,37 @@ const Login = ({ setShowLogin }) => {
           {currentState === "Login" ? (
             <></>
           ) : (
-            <input type="text" placeholder="Your name" required />
+            <input
+              name="name"
+              onChange={onChangeHandler}
+              value={data.name}
+              type="text"
+              placeholder="Your name"
+              required
+              autoComplete="name"
+            />
           )}
 
-          <input type="email" placeholder="Your email Id" required />
+          <input
+            name="email"
+            onChange={onChangeHandler}
+            value={data.email}
+            type="email"
+            placeholder="Your email Id"
+            required
+            autoComplete="email"
+          />
           <div className="Login-password-container">
             <input
+              name="password"
+              onChange={onChangeHandler}
+              value={data.password}
               type={passwordVisible ? "text" : "password"}
               placeholder="Enter your Password"
               required
             />
 
-            <div className="Login-password-eye" onClick={HandleClick}>
+            <div className="Login-password-eye" onClick={HandlePasswordVisibility}>
               {passwordVisible ? <FaEyeSlash /> : <FaEye />}
             </div>
           </div>
