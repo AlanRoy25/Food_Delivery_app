@@ -1,16 +1,21 @@
-import express from "express";
-import { connectdb } from "./config/db.js";
+import path from 'path';
+import fs from 'fs';
 
+console.log('Checking paths and files...');
+console.log('Current working directory:', process.cwd());
+console.log('Checking file existence at:', path.resolve('routes/userRoutes.js'));
+console.log('File exists:', fs.existsSync(path.resolve('routes/userRoutes.js')));
+
+import express from 'express';
+import { connectdb } from './config/db.js';
+import foodRouter from './Routes/foodRoutes.js';
+import userRouter from './routes/userRoutes.js';
 import 'dotenv/config';
-
-console.log("Current Directory:", process.cwd());
-import userRouter from "./routes/userRoutes.js";
-import foodRouter from "./Routes/foodRoutes.js";
 
 // app config
 const app = express();
 
-// middlewares
+//middlewares
 app.use(express.json());
 
 // db connection
@@ -26,6 +31,4 @@ app.get('/', (req, res) => {
 });
 
 const PORT = process.env.PORT || 4000;
-
-app.listen(PORT, () => 
-  console.log(`Server Started on ${PORT}`));
+app.listen(PORT, () => console.log(`Server Started on ${PORT}`));
