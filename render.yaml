@@ -3,7 +3,7 @@ services:
     name: backend
     env: node
     buildCommand: npm install
-    startCommand: cd Backend && node server.js
+    startCommand: cd Backend && npm start
     routes:
       - type: route
         name: /
