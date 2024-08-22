@@ -1,5 +1,4 @@
 import express from "express"
-import cors from 'cors'
 import { connectdb } from "./config/db.js";
 import FoodRouter from "./routes/foodroute.js";
 import 'dotenv/config'
