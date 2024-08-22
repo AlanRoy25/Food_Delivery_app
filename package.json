@@ -2,14 +2,11 @@
   "name": "food_delivery_app",
   "version": "1.0.0",
   "description": "🍕 **Food Delivery App**",
-  "main": "server.js",
   "scripts": {
     "start": "concurrently \"npm run start:frontend\" \"npm run start:Backend\"",
     "start:frontend": "cd frontend && npm run dev",
-    "start:Backend": "cd Backend && node server.js"
+    "start:Backend": "cd Backend && npm start"
   },
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "concurrently": "^8.2.2",
     "food_delivery_app": "file:"
