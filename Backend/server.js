@@ -1,11 +1,11 @@
 import express from "express";
 import { connectdb } from "./config/db.js";
-import FoodRouter from "./Routes/foodRoutes.js";
+
 import 'dotenv/config';
 
 console.log("Current Directory:", process.cwd());
 import userRouter from "./routes/userRoutes.js";
-
+import foodRouter from "./Routes/foodRoutes.js";
 
 // app config
 const app = express();
@@ -17,7 +17,7 @@ app.use(express.json());
 connectdb();
 
 // api endpoint
-app.use('/api/food', FoodRouter);
+app.use('/api/food', foodRouter);
 app.use('/images', express.static('uploads'));
 app.use('/api/user', userRouter);
 

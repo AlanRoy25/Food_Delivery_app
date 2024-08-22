@@ -3,7 +3,7 @@ import express from 'express'
 import { addFood , listfood, removeFood} from '../controllers/foodcontroller.js'
 import multer from 'multer'
 
-const FoodRouter = express.Router();
+const foodRouter = express.Router();
 
 
 //image storage enginer
@@ -24,4 +24,4 @@ FoodRouter.post('/remove', removeFood)
 
 
 
-export default FoodRouter
+export default foodRouter
