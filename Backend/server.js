@@ -1,6 +1,6 @@
 import path from 'path';
 import fs from 'fs';
-
+import cors from 'cors';
 console.log('Checking paths and files...');
 console.log('Current working directory:', process.cwd());
 console.log('Checking file existence at:', path.resolve('Routing/userRoutes.js'));
@@ -18,6 +18,13 @@ const app = express();
 
 //middlewares
 app.use(express.json());
+
+
+app.use(cors({
+  origin: 'https://fooddeliveryapp-alanroy25s-projects.vercel.app/', // Vercel URL
+  optionsSuccessStatus: 200
+}));
+
 
 // db connection
 connectdb();
