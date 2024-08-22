@@ -4,9 +4,9 @@
   "description": "🍕 **Food Delivery App**",
   "main": "server.js",
   "scripts": {
-    "start": "concurrently \"npm run start:frontend\" \"npm run start:backend\"",
+    "start": "concurrently \"npm run start:frontend\" \"npm run start:Backend\"",
     "start:frontend": "cd frontend && npm run dev",
-    "start:backend": "cd backend && node server.js"
+    "start:Backend": "cd Backend && node server.js"
   },
   "author": "",
   "license": "ISC",
