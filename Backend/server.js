@@ -34,6 +34,8 @@ app.use(cors({
 
 // Database connection
 connectdb();
+console.log(connectdb);
+
 
 // API endpoints
 app.use('/api/food', foodRouter);
