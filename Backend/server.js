@@ -4,8 +4,9 @@ import cors from 'cors';
 import express from 'express';
 import { connectdb } from './config/db.js';
 import foodRouter from './Routing/foodRoutes.js'; // Ensure 'Routing' is correctly cased
-import userRouter from './Routing/userRoutes.js';  // Ensure 'Routing' is correctly cased
+
 import 'dotenv/config';
+import router from './Routing/userRoutes.js';   // Ensure 'Routing' is correctly cased
 
 // Debugging statements
 console.log('Checking paths and files...');
@@ -40,7 +41,7 @@ console.log(connectdb);
 // API endpoints
 app.use('/api/food', foodRouter);
 app.use('/images', express.static('uploads'));
-app.use('/api/user', userRouter);
+app.use('/api/user', router);
 
 app.get('/', (req, res) => {
   res.send('API working');

@@ -5,7 +5,7 @@ export const StoreContext = createContext(null);
 
 const StoreContextProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState({});
-  const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:4000';
+  const url = import.meta.env.VITE_API_URL || 'http://localhost:4000';
   const [token,setToken] = useState('')
 
   const addToCart = (itemId) => {
@@ -50,7 +50,7 @@ const StoreContextProvider = ({ children }) => {
     addToCart,
     removeCart,
     getTotalCartAmount,
-    API_URL,
+    url,
     token,
     setToken
   };

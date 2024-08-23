@@ -7,7 +7,7 @@ import { StoreContext } from "../../context/StoreContext";
 import axios from 'axios'
 
 const Login = () => {
-  const { url, setToken } = useContext(StoreContext);
+  const { setToken } = useContext(StoreContext);
 
   const navigate = useNavigate();
   const [currentState, setCurrentState] = useState("Login");
@@ -27,29 +27,28 @@ const Login = () => {
 
   const onLogin = async (event) => {
     event.preventDefault();
-    let newUrl = `${url}/api/user`;
+    let newUrl = `${import.meta.env.VITE_API_URL}/api/user`;
+;
     if (currentState === "Login") {
       newUrl += "/login"
     } else {
       newUrl += "/signin"
     }
 
-    try{
-      const response = await axios.post(newUrl,data)
-      if(response.data.success){
-        setToken(response.data.token)
-        localStorage.setItem('token',response.data.token)
+    try {
+      const response = await axios.post(newUrl, data);
+      if (response.data.success) {
+        setToken(response.data.token);
+        localStorage.setItem('token', response.data.token);
+        navigate('/'); // Redirect to homepage or another protected route
+      } else {
+        alert(response.data.message);
       }
-      else{
-        alert(response.data.message)
-      }
+    } catch (error) {
+      console.error('Error during Authentication', error);
+      alert('An error occurred, please try again.');
     }
-      catch (error){
-        console.error('Error during Authentication', error);
-        alert('an error occured, Please try again')
-      }
-
-    }
+  };
 
   const HandlePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible);

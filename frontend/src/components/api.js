@@ -1,6 +1,7 @@
-const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:4000';
+const url = import.meta.env.VITE_API_URL;
 
-fetch(`${API_URL}/api/user/signin`, {
+
+fetch(`${url}/api/signin`, {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json'
