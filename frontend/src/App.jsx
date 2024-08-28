@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "./components/Navbar/Navbar";
 import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home/Home";
@@ -10,9 +10,12 @@ import AppDownload from "./components/AppDownload/AppDownload";
 import ExploreMenu from "./components/ExploreMenu/ExploreMenu";
 
 const App = () => {
+  const [showLogin, setShowLogin] = useState(true);
+
   return (
     <>
-      <Navbar cartItemCount={0} />
+      <Navbar setShowLogin={setShowLogin} />
+      {showLogin && <LoginPage />}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/menu" element={<ExploreMenu />} />
@@ -20,6 +23,7 @@ const App = () => {
         <Route path="/cart" element={<Cart />} />
         <Route path="/orders" element={<PlaceOrder />} />
         <Route path="/login" element={<LoginPage />} />
+        {/* Ensure you handle the login route separately if needed */}
       </Routes>
       <Footer />
     </>
