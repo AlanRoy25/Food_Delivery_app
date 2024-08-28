@@ -4,7 +4,6 @@ import cors from 'cors';
 import express from 'express';
 import { connectdb } from './config/db.js';
 import foodRouter from './Routing/foodRoutes.js'; // Ensure 'Routing' is correctly cased
-
 import 'dotenv/config';
 import router from './Routing/userRoutes.js';   // Ensure 'Routing' is correctly cased
 
@@ -20,35 +19,42 @@ const app = express();
 // Middlewares
 app.use(express.json());
 
+// Configure CORS
+const allowedOrigins = [
+  'https://fooddeliveryapp-alanroy25s-projects.vercel.app',
+  'http://localhost:4000',
+  'http://localhost:5173'
+];
+
 app.use(cors({
   origin: (origin, callback) => {
-    const allowedOrigins = ['https://fooddeliveryapp-alanroy25s-projects.vercel.app'];
     if (!origin || allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
       callback(new Error('Not allowed by CORS'));
     }
   },
-  optionsSuccessStatus: 200,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Origin', 'X-Requested-With', 'Content-Type', 'Accept', 'Authorization'],
   credentials: true, // Allow credentials (cookies, authorization headers, etc.)
 }));
+
+// Handle preflight requests for all routes
+app.options('*', cors()); // CORS preflight handling for all routes
 
 // Database connection
 connectdb();
 console.log(connectdb);
-
 
 // API endpoints
 app.use('/api/food', foodRouter);
 app.use('/images', express.static('uploads'));
 app.use('/api/user', router);
 
+// Default route
 app.get('/', (req, res) => {
   res.send('API working');
 });
-
-// Handle preflight requests for all routes
-app.options('*', cors());
 
 // Start the server
 const PORT = process.env.PORT || 4000;
