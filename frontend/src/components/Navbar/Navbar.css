@@ -107,14 +107,13 @@
 }
 
 .navbar-profile{
-  position: relative;
   z-index: 200;
 }
 .nav-profile-dropdown{
-  position: absolute;
+  position: relative;
   display: none;
   right: 0;
-  z-index: 300;
+  z-index: 500;
   top: 100%;
 }
 

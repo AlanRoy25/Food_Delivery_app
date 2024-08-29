@@ -5,7 +5,7 @@ import express from 'express';
 import { connectdb } from './config/db.js';
 import foodRouter from './Routing/foodRoutes.js'; // Ensure 'Routing' is correctly cased
 import 'dotenv/config';
-import router from './Routing/userRoutes.js';   // Ensure 'Routing' is correctly cased
+import userRoutes from './Routing/userRoutes.js';   // Ensure 'Routing' is correctly cased
 
 // Debugging statements
 console.log('Checking paths and files...');
@@ -20,20 +20,13 @@ const app = express();
 app.use(express.json());
 
 // Configure CORS
-const allowedOrigins = [
-  'https://fooddeliveryapp-alanroy25s-projects.vercel.app',
-  'http://localhost:4000',
-  'http://localhost:5173'
-];
+
 
 app.use(cors({
-  origin: (origin, callback) => {
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
+ allowedOrigins: ['https://fooddeliveryapp-alanroy25s-projects.vercel.app',
+  'http://localhost:4000',
+  'http://localhost:5173',
+  'http://localhost:5174'],
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Origin', 'X-Requested-With', 'Content-Type', 'Accept', 'Authorization'],
   credentials: true, // Allow credentials (cookies, authorization headers, etc.)
@@ -49,7 +42,7 @@ console.log(connectdb);
 // API endpoints
 app.use('/api/food', foodRouter);
 app.use('/images', express.static('uploads'));
-app.use('/api/user', router);
+app.use('/api/user', userRoutes);
 
 // Default route
 app.get('/', (req, res) => {

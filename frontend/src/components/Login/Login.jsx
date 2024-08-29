@@ -40,7 +40,7 @@ const Login = () => {
     } else {
       newUrl += "/signin";
     }
-
+  
     try {
       const response = await axios.post(newUrl, data);
       if (response.data.success) {
@@ -56,6 +56,7 @@ const Login = () => {
       alert('An error occurred, please try again.');
     }
   };
+  
 
   return (
     <>

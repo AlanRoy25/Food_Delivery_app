@@ -15,6 +15,9 @@ const Navbar = ({ setShowLogin }) => {
   }
   const navigate = useNavigate();
 
+  const login = () => {
+    navigate('/Login')
+  }
   return (
     <div className="navbar">
       <Link to='/'>
@@ -68,7 +71,7 @@ const Navbar = ({ setShowLogin }) => {
               {getTotalCartAmount() > 0 && <div className="dot"></div>}
             </Link>
           </div>
-          {!token? <button onClick={() => setShowLogin(true)}>Sign in</button> 
+          {!token? <button onClick={login}>Sign in</button> 
           : <div className="navbar-profile">
             <img src={assets.profile_icon} alt="" />
             <ul className="nav-profile-dropdown">

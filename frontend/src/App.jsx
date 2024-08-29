@@ -15,7 +15,7 @@ const App = () => {
   return (
     <>
       <Navbar setShowLogin={setShowLogin} />
-      {showLogin && <LoginPage />}
+      {showLogin && <LoginPage setShowLogin={setShowLogin} />}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/menu" element={<ExploreMenu />} />

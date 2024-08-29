@@ -1,5 +1,4 @@
 import { createContext, useEffect, useState } from "react";
-import { food_list } from "../assets/assets";
 
 export const StoreContext = createContext(null);
 
@@ -7,6 +6,14 @@ const StoreContextProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState({});
   const url = import.meta.env.VITE_API_URL || 'http://localhost:4000';
   const [token,setToken] = useState('')
+  const [foodList, setFoodList] = useState([])
+
+
+  useEffect(() => {
+    if(localStorage.getItem('token')){
+      setToken(localStorage.getItem('token'))
+    }
+  })
 
   const addToCart = (itemId) => {
     setCartItems((prevCart) => ({
@@ -33,7 +40,7 @@ const StoreContextProvider = ({ children }) => {
     let totalAmount = 0;
     for (const item in cartItems) {
       if (cartItems[item] > 0) {
-        const itemInfo = food_list.find(
+        const itemInfo = foodList.find(
           (product) => product._id.toString() === item
         );
       if (itemInfo) {
@@ -45,7 +52,7 @@ const StoreContextProvider = ({ children }) => {
   };
 
   const contextValue = {
-    food_list,
+    foodList,
     cartItems,
     addToCart,
     removeCart,

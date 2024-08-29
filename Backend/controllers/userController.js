@@ -3,44 +3,45 @@ import bcrypt from "bcrypt";
 import validator from "validator";
 import usermodel from "../models/usermodel.js";
 
+// Login user
 export const loginuser = async (req, res) => {
   const { email, password } = req.body;
   try {
     const userexists = await usermodel.findOne({ email: email });
     if (!userexists) {
-      return res.json({ success: false, message: "User doesnt exists!" });
+      return res.json({ success: false, message: "User doesn't exist!" });
     }
 
-    //chceking password
-    const ismatch = await bcrypt.compare(password, user.password);
+    // Checking password
+    const ismatch = await bcrypt.compare(password, userexists.password);
     if (!ismatch) {
       return res.json({ success: false, message: "Invalid password!" });
     }
 
-    const token = createToken(user._id);
-    res.json({ success: true });
+    const token = createToken(userexists._id);  // Use userexists._id
+    res.json({ success: true, token });
   } catch (error) {
     console.log(error);
     res.json({ success: false, message: "Error" });
   }
 };
 
-//create token
+// Create token
 const createToken = (id) => {
   return jwt.sign({ id }, process.env.JWT_SECRET);
 };
 
-//register user
-
+// Register user
 export const signupuser = async (req, res) => {
   const { name, password, email } = req.body;
-  //checking if user already exists
+  // Checking if user already exists
   try {
     const userexists = await usermodel.findOne({ email: email });
     if (userexists) {
       return res.json({ success: false, message: "User already exists" });
     }
-    //validating email format & strong password
+    
+    // Validating email format & strong password
     if (!validator.isEmail(email)) {
       return res.json({
         success: false,
@@ -54,11 +55,11 @@ export const signupuser = async (req, res) => {
       });
     }
 
-    //for encrypting the password we use bycrypt
+    // Encrypting the password using bcrypt
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
 
-    //creating new user
+    // Creating new user
     const newUser = new usermodel({
       name: name,
       email: email,
@@ -71,7 +72,7 @@ export const signupuser = async (req, res) => {
     console.log(error);
     res.json({
       success: false,
-      message: "An error occured while creating the user",
+      message: "An error occurred while creating the user",
     });
   }
 };
