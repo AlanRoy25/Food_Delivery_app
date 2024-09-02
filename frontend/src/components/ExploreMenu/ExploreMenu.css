@@ -5,13 +5,17 @@
 }
 
 .explore-menu h1{
-  color: rgba(39, 38, 38, 0.858);
+  color: rgb(4, 68, 16);
   font-weight: 500;
+  margin-left: 10px;
 }
 
 .explore-menu-text{
-  max-width: 60%;
-  columns: #808080;
+  columns: #00531d;
+  font-weight: 500;
+  margin-left: 10px;
+  font-size: large;
+  color:  rgb(4, 68, 16);;
 }
 
 .explore-menu-list{
@@ -42,7 +46,7 @@
 
 .explore-menu-list-item p{
   margin-top: 10px;
-  color: rgb(93, 95, 97);
+  color:  rgb(4, 68, 16);
   font-size: medium;
   cursor: pointer;
 }
@@ -55,7 +59,7 @@
 }
 
 .explore-menu-list-item .active{
-  border: 4px solid rgb(61, 184, 13);
+  border: 4px solid rgb(24, 110, 0);
   padding: 1px;
 
 }

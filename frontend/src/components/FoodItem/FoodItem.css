@@ -3,7 +3,7 @@
   height: 320px; /* Adjust the height to fit the image, text, and icons */
   margin: auto;
   border-radius: 10px;
-  box-shadow: 0px 0px 10px rgb(102, 218, 39);
+  box-shadow: 0px 1px 4px 1px rgb(109, 215, 52);
   overflow: hidden;
   position: relative;
   transition: transform 0.3s ease;
@@ -32,6 +32,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  color:  rgb(4, 68, 16);;
 }
 
 .food-item-name-rating {
@@ -44,22 +45,23 @@
 .food-item-name-rating p {
   font-size: 16px;
   font-weight: 500;
+  color:  rgb(4, 68, 16);;
 }
 
 .food-item-name-rating img {
-  width: 68px; /* Adjusted size of the star rating icon */
+  width: 75px; /* Adjusted size of the star rating icon */
   height: 20px;
 }
 
 .food-item-description {
-  color: slategray;
+  color:  rgb(4, 68, 16);
   font-size: 12px;
   font-weight: 500;
   margin-bottom: 5px;
 }
 
 .food-item-price {
-  color: rgb(99, 163, 2);
+  color: rgb(68, 112, 2);
   font-size: 18px;
   font-weight: 600;
 }
@@ -77,7 +79,7 @@
   bottom: 10px;
   cursor: pointer;
   border-radius: 50%;
-  background-color: white;
+  background-color: rgb(254, 254, 254);
   display: flex;
   align-items: center;
   justify-content: center;

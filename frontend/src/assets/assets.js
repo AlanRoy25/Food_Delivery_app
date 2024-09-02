@@ -1,8 +1,8 @@
 import React from 'react'
 
 import basket_icon from './basket_icon.png'
-import logo from './Swiggy-emblem.png'
-import header_img from './header_img.png'
+import logo from './logo.png'
+import header_img from './mainbanner.jpg'
 import search_icon from './search_icon.png'
 import menu_1 from './menu_1.png'
 import menu_2 from './menu_2.png'

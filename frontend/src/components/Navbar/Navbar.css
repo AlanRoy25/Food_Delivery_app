@@ -1,9 +1,8 @@
 .navbar {
-  padding: 10px;
+  padding: 1px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
   position: relative;
   top: 0;
   left: 0;
@@ -11,10 +10,13 @@
   background-color: rgb(121, 230, 116);
   box-sizing: border-box; /* Include padding in width calculation */
   overflow: hidden; /* Prevent overflow */
+  height: 100px;
 }
 
 .logo {
-  width: 100px;
+  width: 120px;
+  margin-left: 10px;
+  margin-top: 10px;
 }
 
 .navbar-menu {
@@ -22,9 +24,10 @@
   list-style: none;
   gap: 30px;
   color: rgb(4, 68, 16);
-  font-size: 18px;
+  font-size: 20px;
   flex-grow: 1; /* Allows the menu to take up available space */
   justify-content: center;
+  font-weight: 500;
 }
 
 .navbar-right {
@@ -91,6 +94,7 @@
   transition: 0.2s;
   font-weight: 500;
   margin: 0;
+  margin-right: 10px;
 }
 
 .navbar button:hover {
