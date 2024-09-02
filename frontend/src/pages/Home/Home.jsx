@@ -8,10 +8,11 @@ import AppDownload from '../../components/AppDownload/AppDownload'
 const Home = () => {
 
   const [category, setCategory] = useState('All')
+  const [menu,setMenu] = useState(false)
   return (
     <div>
-      <Header />
-      <ExploreMenu category = {category} setCategory = {setCategory} />
+      <Header setMenu={setMenu}/>
+      {menu && <ExploreMenu category = {category} setCategory = {setCategory} />}
       <FoodDisplay category={category} />
       <AppDownload />
     </div>

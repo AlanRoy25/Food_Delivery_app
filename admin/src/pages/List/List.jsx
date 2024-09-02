@@ -45,7 +45,7 @@ fetchList()
       {list.map((item,index) => {
         return (
           <div key={index} className='list-table-format' >
-            <img src={`${url}/images/`+ item.image} alt="" />
+            <img src={`${url}/uploads/`+ item.image} alt="" />
             <p>{item.image}</p>
             <p>{item.category}</p>
             <p>Rs {item.price}</p>

@@ -6,10 +6,10 @@ import { useNavigate } from "react-router-dom";
 const CartItem = ( name, item, quantity, removeCart, url , price ) => (
   <>
     <div className="cart-items-title cart-items-item">
-      <img src={`${url}/uploads/${image}`}
+      <img src={url+'/uploads/'+item.images}
  alt={item.name} />
       <p>{item.name}</p>
-      <p>Rs {item.price}</p>
+      <p>Rs {item.price}</p> 
       <p>{quantity}</p>
       <p>Rs {item.price * quantity}</p>
       <p onClick={() => removeCart(item._id)} className="cross">

@@ -41,8 +41,12 @@ console.log(connectdb);
 
 // API endpoints
 app.use('/api/food', foodRouter);
-app.use('/images', express.static('uploads'));
+app.use('/uploads', express.static('uploads'));
+
+
 app.use('/api/user', userRoutes);
+
+
 
 // Default route
 app.get('/', (req, res) => {

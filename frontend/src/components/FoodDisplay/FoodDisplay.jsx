@@ -3,7 +3,8 @@ import "./FoodDisplay.css";
 import { StoreContext } from "../../context/StoreContext";
 import FoodItem from "../FoodItem/FoodItem";
 
-const FoodDisplay = ({ category }) => {
+const FoodDisplay = ({ category , apiUrl }) => {
+  apiUrl ='http://localhost:4000'
   const { foodList } = useContext(StoreContext);
 
   return (
@@ -21,8 +22,8 @@ const FoodDisplay = ({ category }) => {
                 name={item.name}
                 description={item.description}
                 price={item.price}
-                images={item.images}
-                url={item.url}
+                images={item.image}
+                url={apiUrl}
               />
             );
           }

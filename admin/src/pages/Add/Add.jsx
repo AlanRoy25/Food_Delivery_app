@@ -94,7 +94,6 @@ const Add = ({url}) => {
           <div className="add-category">
             <p>Product category</p>
             <select onChange={onChangeHandler} name="category" value={data.category} required>
-              <option value="Select">Select</option>
               <option value="Salad">Salad</option>
               <option value="Rolls">Rolls</option>
               <option value="Deserts">Deserts</option>
@@ -103,7 +102,7 @@ const Add = ({url}) => {
               <option value="PureVeg ">PureVeg </option>
               <option value="Pasta">Pasta</option>
               <option value="Noodles">Noodles</option>
-              <option value="Non-Veg">Non-Veg</option>
+              <option value="NonVeg">NonVeg</option>
             </select>
           </div>
           <div className="add-price flex-col">
