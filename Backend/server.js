@@ -7,6 +7,7 @@ import foodRouter from './Routing/foodRoutes.js'; // Ensure 'Routing' is correct
 import 'dotenv/config';
 import userRoutes from './Routing/userRoutes.js';   // Ensure 'Routing' is correctly cased
 import cartRouter from './Routing/cartRoutes.js';
+import orderRouter from './Routing/orderRoutes.js';
 
 // Debugging statements
 console.log('Checking paths and files...');
@@ -24,7 +25,7 @@ app.use(express.json());
 
 
 app.use(cors({
- allowedOrigins: ['https://fooddeliveryapp-alanroy25s-projects.vercel.app',
+ allowedOrigins: [
   'http://localhost:4000',
   'http://localhost:5173',
   'http://localhost:5174'],
@@ -45,6 +46,7 @@ app.use('/api/food', foodRouter);
 app.use('/uploads', express.static('uploads'));
 app.use('/api/user', userRoutes);
 app.use('/api/cart',cartRouter)
+app.use('/api/order',orderRouter)
 
 
 
