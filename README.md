@@ -29,8 +29,8 @@ MongoDB: NoSQL database for storing user data, orders, and menu items.
 Mongoose: For object data modeling (ODM) with MongoDB.
 Stripe: For handling secure payments.
 Deployment:
-Frontend: Hosted on [Vercel/Netlify].
-Backend: Hosted on [Heroku/Render].
+Frontend: Hosted on [Vercel].
+Backend: Hosted on [Render].
 Database: MongoDB Atlas.
 
 
@@ -39,7 +39,7 @@ _**🚀 Getting Started**___
 Prerequisites_
 Ensure you have the following installed:
 
-Node.js (v12+)
+Node.js (v14+)
 MongoDB (local or Atlas)
 Stripe Account for payment integration.
 Installation
