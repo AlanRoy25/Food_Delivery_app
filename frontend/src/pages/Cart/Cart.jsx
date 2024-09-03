@@ -36,20 +36,12 @@ const Cart = () => {
         <br />
         <hr />
         {foodList.map((item) => {
-          const quantity = cartItems[item._id];
-          if (quantity > 0) {
-            return (
-              <CartItem
-                key={item._id}
-                item={item}
-                quantity={quantity}
-                removeCart={removeCart}
-                url={url}
-              />
-            );
-          }
-          return null;
-        })}
+        const quantity = cartItems[item._id];
+        if (quantity && item) {
+          return <CartItem key={item._id} item={item} quantity={quantity} removeCart={removeCart} url={url} />;
+        }
+        return null;
+      })}
       </div>
       <div className="cart-bottom">
         <div className="cart-total">

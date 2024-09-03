@@ -6,6 +6,7 @@ import { connectdb } from './config/db.js';
 import foodRouter from './Routing/foodRoutes.js'; // Ensure 'Routing' is correctly cased
 import 'dotenv/config';
 import userRoutes from './Routing/userRoutes.js';   // Ensure 'Routing' is correctly cased
+import cartRouter from './Routing/cartRoutes.js';
 
 // Debugging statements
 console.log('Checking paths and files...');
@@ -28,7 +29,7 @@ app.use(cors({
   'http://localhost:5173',
   'http://localhost:5174'],
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Origin', 'X-Requested-With', 'Content-Type', 'Accept', 'Authorization'],
+  allowedHeaders: ['Origin', 'X-Requested-With', 'Content-Type', 'Accept', 'Authorization', 'token'],
   credentials: true, // Allow credentials (cookies, authorization headers, etc.)
 }));
 
@@ -42,9 +43,8 @@ console.log(connectdb);
 // API endpoints
 app.use('/api/food', foodRouter);
 app.use('/uploads', express.static('uploads'));
-
-
 app.use('/api/user', userRoutes);
+app.use('/api/cart',cartRouter)
 
 
 
